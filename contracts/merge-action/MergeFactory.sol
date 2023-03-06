@@ -36,6 +36,7 @@ contract MergeFactory is IMergeNFTFactory, OwnableUpgradeable, UUPSUpgradeable {
 	function createNewMergeNFT(
 		string memory mergeNFTName,
 		string memory mergeNFTSymbol,
+		uint256 amountToMerge,
 		address initialOwner,
 		address renderer,
 		IERC721 collectionToMerge
@@ -46,6 +47,7 @@ contract MergeFactory is IMergeNFTFactory, OwnableUpgradeable, UUPSUpgradeable {
 		MergeNFT(newMergeNFTAddress).initialize({
 			_mergeNFTName: mergeNFTName,
 			_mergeNFTSymbol: mergeNFTSymbol,
+			_amountToMerge: amountToMerge,
 			_initialOwner: initialOwner,
 			_renderer: renderer,
 			_collectionToMerge: collectionToMerge
