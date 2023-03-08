@@ -20,9 +20,13 @@ import {MergeNFT} from "./MergeNFT.sol";
 /// @author matheus
 contract MergeFactory is IMergeNFTFactory, OwnableUpgradeable, UUPSUpgradeable {
 
+	/// @notice Address for implementation of MergeNFT to clone
 	address public immutable implementation;
+	
 
 	constructor(address _implementation) initializer {
+		if(_implementation == address(0)) revert AddressCannotBeZero();
+
 		implementation = _implementation;
 	}
 

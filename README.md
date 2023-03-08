@@ -30,3 +30,41 @@ The process works this way:
 ### Friend-payed-invite Mint
 
 Same process as the mint-invite action above, but with the possibility for the user who is minting the current token to pay the mint value of the token of the user he is inviting to mint.
+
+
+### Give to the "bazaar" to mint
+
+It allows artists/creators to create a minting process where collectors need to send an NFT from those accepted by the bazaar in order to mint a new NFT in the current collection.
+
+Something like:
+
+* Creators set which collections they accept NFTs from for the bazaar
+* When minting a new NFT in the current collection, users must send an NFT from one of the collections accepted by the bazaar
+* After all tokens in the current collection are minted, the NFTs in the bazaar are put up for "direct" sale.
+* The NFTs sent to the bazaar remain the property of the current collection contract until the "direct" sale stage.
+
+*Note: This is more of a proof of concept. This action would be very interesting, if we already had proof of humanity used in mass, so that the people who buy the NFTs from the bazaar are different from the previous owners, thus increasing the rotativity of the pieces*
+
+
+### Mint to "chain-friend" or "in-cascade"
+
+The user who mints token #1 automatically mints the seed for the artwork of the user who mints token #2, the user who mints token #2 mints the seed for the artwork of the user who mints token #3, and so on until the user who mints the last token mints the seed for the artwork of the user who minted token #1.
+
+The artworks (visuals) are revealed as soon as the token has an associated seed.
+
+*Note: Looks cool for generative art*
+
+
+### Community-managed-supply
+
+It allows the community of NFT owners in a collection to propose and vote on whether they want to increase the collection's supply.
+
+Something like:
+
+* The collection's creator or some holder proposes to increase the collection's supply by X
+* All the other holders vote for or against the proposal. 1 NFT = 1 Vote
+* If the proposal passes the total supply is increased by X
+* For a proposal to pass it must have 51% + 1 vote? (maybe)
+
+*Note 1: Looks cool for generative art*
+*Note 2: In the case of generative art it is interesting that the creator indicates the " reach" of the algorithm before it becomes repetitive*

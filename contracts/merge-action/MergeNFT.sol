@@ -115,6 +115,12 @@ contract MergeNFT is IMergeNFT, MergeNFTStorage, ERC721Upgradeable, UUPSUpgradea
 		}
 	}
 
+	/// @notice Burn tokenId
+	/// @param tokenId Token ID to burn
+	function burn(uint256 tokenId) public {
+		_burn(tokenId, true);
+	}
+
 	function tokenURI(uint256 tokenId) public view override returns (string memory) {
 		return "";
 	}
