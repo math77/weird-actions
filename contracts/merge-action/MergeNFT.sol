@@ -29,7 +29,7 @@ contract MergeNFT is IMergeNFT, MergeNFTStorage, ERC721Upgradeable, UUPSUpgradea
   /// @param _mergeNFTName The merge collection name
   /// @param _mergeNFTSymbol The merge collection symbol
   /// @param _amountToMerge Number of tokens required to merge in order to mint new one
-  /// @param _initialOwner The owner of contract (msg.sender who called the function in the factory contract)
+  /// @param _initialOwner The owner of contract
   /// @param _renderer Address for the metadata contract
   /// @param _collectionToMerge Collection where the NFTs to merge live
   function initialize(
@@ -119,7 +119,7 @@ contract MergeNFT is IMergeNFT, MergeNFTStorage, ERC721Upgradeable, UUPSUpgradea
   /// @notice Burn tokenId
   /// @param tokenId Token ID to burn
   function burn(uint256 tokenId) public {
-    _burn(tokenId, true);
+    _burn(tokenId);
   }
 
   function tokenURI(uint256 tokenId) public view override returns (string memory) {
