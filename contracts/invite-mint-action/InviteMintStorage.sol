@@ -3,11 +3,11 @@ pragma solidity 0.8.18;
 
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-import {IFriendMint} from "./interfaces/IFriendMint.sol";
+import {IInviteMint} from "./interfaces/IInviteMint.sol";
 
-/// @title FriendMint Storage 
+/// @title InviteMint Storage 
 /// @author matheus
-abstract contract FriendMintStorage {
+abstract contract InviteMintStorage {
 
   /// @notice TokenId of NFT minted
   uint256 public tokenId;
@@ -16,5 +16,5 @@ abstract contract FriendMintStorage {
   uint256 public maxSupply;
 
   /// @notice Keeps track of the invitations
-  mapping(address invited => IFriendMint.Invitation invitation) public invitations;
+  mapping(address invited => IInviteMint.Invitation invitation) public invitations;
 }

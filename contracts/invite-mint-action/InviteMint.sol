@@ -9,14 +9,14 @@ import {ReentrancyGuardUpgradeable} from "@openzeppelin/contracts-upgradeable/se
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 
-import {FriendMintStorage} from "./FriendMintStorage.sol";
+import {InviteMintStorage} from "./InviteMintStorage.sol";
 
-import {IFriendMint} from "./interfaces/IFriendMint.sol";
+import {IInviteMint} from "./interfaces/IInviteMint.sol";
 
 
-/// @title FriendMint 
+/// @title InviteMint 
 /// @author matheus
-contract FriendMint is IFriendMint, FriendMintStorage, ERC721Upgradeable, UUPSUpgradeable, ReentrancyGuardUpgradeable, AccessControlUpgradeable {
+contract InviteMint is IInviteMint, InviteMintStorage, ERC721Upgradeable, UUPSUpgradeable, ReentrancyGuardUpgradeable, AccessControlUpgradeable {
 
   modifier onlyAdmin() { 
     if(!hasRole(DEFAULT_ADMIN_ROLE, _msgSender())) {
@@ -25,20 +25,20 @@ contract FriendMint is IFriendMint, FriendMintStorage, ERC721Upgradeable, UUPSUp
     _; 
   }
   
-  /// @dev Initialize a new friendmint contract
-  /// @param _friendMintName The friendmint collection name
-  /// @param _friendMintSymbol The friendmint collection symbol
+  /// @dev Initialize a new invitemint contract
+  /// @param _inviteMintName The invitemint collection name
+  /// @param _inviteMintSymbol The invitemint collection symbol
   /// @param _maxSupply Collection max supply
   /// @param _initialOwner The owner of contract
   /// @param _renderer Address for the metadata contract
   function initialize(
-    string memory _friendMintName,
-    string memory _friendMintSymbol,
+    string memory _inviteMintName,
+    string memory _inviteMintSymbol,
     uint256 _maxSupply,
     address _initialOwner,
     address _renderer
   ) public initializer {
-    __ERC721_init(_friendMintName, _friendMintSymbol);
+    __ERC721_init(_inviteMintName, _inviteMintSymbol);
     __AccessControl_init();
     __ReentrancyGuard_init();
 
@@ -68,6 +68,6 @@ contract FriendMint is IFriendMint, FriendMintStorage, ERC721Upgradeable, UUPSUp
   function supportsInterface(bytes4 interfaceId) public view override(ERC721Upgradeable, AccessControlUpgradeable) returns (bool) {
     return 
       super.supportsInterface(interfaceId) ||
-      type(IFriendMint).interfaceId == interfaceId;
+      type(IInviteMint).interfaceId == interfaceId;
   }
 }

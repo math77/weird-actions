@@ -6,23 +6,23 @@ import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/U
 
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-import {FriendMintProxy} from "./FriendMintProxy.sol";
+import {InviteMintProxy} from "./InviteMintProxy.sol";
 
-import {IFriendMintFactory} from "./interfaces/IFriendMintFactory.sol";
+import {IInviteMintFactory} from "./interfaces/IInviteMintFactory.sol";
 
-import {FriendMint} from "./FriendMint.sol";
+import {InviteMint} from "./InviteMint.sol";
 
 
-/// @title FriendMint Factory 
+/// @title InviteMint Factory 
 /// @author matheus
-contract FriendMintFactory is IFriendMintFactory, OwnableUpgradeable, UUPSUpgradeable {
+contract InviteMintFactory is IInviteMintFactory, OwnableUpgradeable, UUPSUpgradeable {
 
-  /// @notice Address for implementation of FriendMint to clone
+  /// @notice Address for implementation of InviteMint to clone
   address public immutable implementation;
   
   
   /// @notice Initializes factory with address of implementation contract
-  /// @param _implementation FriendMint implementation contract to clone
+  /// @param _implementation InviteMint implementation contract to clone
   constructor(address _implementation) initializer {
     if(_implementation == address(0)) revert AddressCannotBeZero();
 
@@ -39,32 +39,32 @@ contract FriendMintFactory is IFriendMintFactory, OwnableUpgradeable, UUPSUpgrad
   function _authorizeUpgrade(address _newImplementation) internal override onlyOwner {}
 
 
-  /// @notice Create a new FriendMint
-  /// @param friendMintName The friendmint collection name
-  /// @param friendMintSymbol The friendmint collection symbol
+  /// @notice Create a new InviteMint
+  /// @param inviteMintName The invitemint collection name
+  /// @param inviteMintSymbol The invitemint collection symbol
   /// @param maxSupply Collection max supply
   /// @param initialOwner The owner of contract
   /// @param renderer Address for the metadata contract 
-  function createNewFriendMint(
-    string memory friendMintName,
-    string memory friendMintSymbol,
+  function createNewInviteMint(
+    string memory inviteMintName,
+    string memory inviteMintSymbol,
     uint256 maxSupply,
     address initialOwner,
     address renderer
-  ) public payable returns (address newFriendMintAddress) {
-    FriendMintProxy newFriendMint = new FriendMintProxy(implementation, "");
+  ) public payable returns (address newInviteMintAddress) {
+    InviteMintProxy newInviteMint = new InviteMintProxy(implementation, "");
 
-    newFriendMintAddress = address(newFriendMint);
-    FriendMint(newFriendMintAddress).initialize({
-      _friendMintName: friendMintName,
-      _friendMintSymbol: friendMintSymbol,
+    newInviteMintAddress = address(newInviteMint);
+    InviteMint(newInviteMintAddress).initialize({
+      _inviteMintName: inviteMintName,
+      _inviteMintSymbol: inviteMintSymbol,
       _maxSupply: maxSupply,
       _initialOwner: initialOwner,
       _renderer: renderer
     });
 
-    emit FriendMintCreated({
-      friendMint: newFriendMintAddress,
+    emit InviteMintCreated({
+      inviteMint: newInviteMintAddress,
       owner: initialOwner
     });
 

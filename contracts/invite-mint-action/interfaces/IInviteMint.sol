@@ -2,7 +2,7 @@
 pragma solidity 0.8.18;
 
 /// @author matheus
-interface IFriendMint {
+interface IInviteMint {
 
   /// @notice Only admin can access the function
   error AccessOnlyAdmin();
