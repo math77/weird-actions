@@ -67,4 +67,15 @@ Something like:
 * For a proposal to pass it must have 51% + 1 vote? (maybe)
 
 *Note 1: Looks cool for generative art*
+
 *Note 2: In the case of generative art it is interesting that the creator indicates the " reach" of the algorithm before it becomes repetitive*
+
+
+### Ethlogy mint
+
+Allows the artist/creator to set up mint flows based on users' onchain signs. The signs project [Ethlogy](https://github.com/math77/ethlogy)
+
+
+* Drop only for a specific sign
+* Sign information used as seed
+* Specific artwork for each sign
