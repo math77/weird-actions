@@ -15,6 +15,12 @@ abstract contract InviteMintStorage {
   /// @notice Collection max supply
   uint256 public maxSupply;
 
+  /// @notice Max number of tokens an address can mint by invite
+  uint256 public maxTokensByMint;
+
+  /// @notice Max number of invites an same address can receive
+  uint256 public maxInvitesByAddress;
+
   /// @notice Keeps track of the invitations
   mapping(address invited => IInviteMint.Invitation invitation) public invitations;
 }

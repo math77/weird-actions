@@ -29,12 +29,16 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721Upgradeable, UUPSUp
   /// @param _inviteMintName The invitemint collection name
   /// @param _inviteMintSymbol The invitemint collection symbol
   /// @param _maxSupply Collection max supply
+  /// @param _maxTokensByMint Max number of tokens an address can mint by invite
+  /// @param _maxInvitesByAddress Max number of invites an same address can receive
   /// @param _initialOwner The owner of contract
   /// @param _renderer Address for the metadata contract
   function initialize(
     string memory _inviteMintName,
     string memory _inviteMintSymbol,
     uint256 _maxSupply,
+    uint256 _maxTokensByMint,
+    uint256 _maxInvitesByAddress,
     address _initialOwner,
     address _renderer
   ) public initializer {
@@ -46,6 +50,8 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721Upgradeable, UUPSUp
     //_setOwner(_initialOwner);
 
     maxSupply = _maxSupply;
+    maxTokensByMint = _maxTokensByMint;
+    maxInvitesByAddress = _maxInvitesByAddress;
   }
 
   /// @notice Mint 1 NFT and invite someone else to mint the next one

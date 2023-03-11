@@ -43,12 +43,16 @@ contract InviteMintFactory is IInviteMintFactory, OwnableUpgradeable, UUPSUpgrad
   /// @param inviteMintName The invitemint collection name
   /// @param inviteMintSymbol The invitemint collection symbol
   /// @param maxSupply Collection max supply
+  /// @param maxTokensByMint Max number of tokens an address can mint by invite
+  /// @param maxInvitesByAddress Max number of invites an same address can receive
   /// @param initialOwner The owner of contract
   /// @param renderer Address for the metadata contract 
   function createNewInviteMint(
     string memory inviteMintName,
     string memory inviteMintSymbol,
     uint256 maxSupply,
+    uint256 maxTokensByMint,
+    uint256 maxInvitesByAddress,
     address initialOwner,
     address renderer
   ) public payable returns (address newInviteMintAddress) {
@@ -59,6 +63,8 @@ contract InviteMintFactory is IInviteMintFactory, OwnableUpgradeable, UUPSUpgrad
       _inviteMintName: inviteMintName,
       _inviteMintSymbol: inviteMintSymbol,
       _maxSupply: maxSupply,
+      _maxTokensByMint: maxTokensByMint,
+      _maxInvitesByAddress: maxInvitesByAddress,
       _initialOwner: initialOwner,
       _renderer: renderer
     });
