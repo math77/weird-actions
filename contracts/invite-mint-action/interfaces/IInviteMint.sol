@@ -10,6 +10,15 @@ interface IInviteMint {
   /// @notice Only invitees can mint and invite new one
   error NotInvited();
 
+  /// @notice Not allowed invite yourself (address) to mint
+  error CannotInviteYourself();
+
+  /// @notice The address reached the max number of invitations allowed
+  error MaxInvitationsReached();
+
+  /// @notice The quantity to mint exceed the max number allowed
+  error MaxTokensByMintExceed();
+
   /// @notice Storage of invitation information
   struct Invitation {
     uint256 invitedDate;

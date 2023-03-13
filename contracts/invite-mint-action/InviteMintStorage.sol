@@ -5,7 +5,7 @@ import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 import {IInviteMint} from "./interfaces/IInviteMint.sol";
 
-/// @title InviteMint Storage 
+/// @title InviteMintStorage 
 /// @author matheus
 abstract contract InviteMintStorage {
 
