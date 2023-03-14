@@ -15,7 +15,7 @@ Among the possibilities of what happens to NFTs that have been merged are:
 * NFTs are locked into the merger contract
 
 
-### Friend-invite Mint
+### Friend-invite mint
 
 It allows artists and creators to implement a mint-invite based minting process.
 
@@ -27,7 +27,7 @@ The process works this way:
 * The process continues until the maximum supply of the collection is reached.
 
 
-### Friend-payed-invite Mint
+### Friend-payed-invite mint
 
 Same process as the mint-invite action above, but with the possibility for the user who is minting the current token to pay the mint value of the token of the user he is inviting to mint.
 
@@ -79,3 +79,17 @@ Allows the artist/creator to set up mint flows based on users' onchain signs. Th
 * Drop only for a specific sign
 * Sign information used as seed
 * Specific artwork for each sign
+
+
+### Rule-based mint
+
+Allows the creation of rule-based mint flows that use the data from the: [Weird actions stuff storage](https://github.com/math77/weird-actions-stuff-storage)
+
+Rules examples:
+
+* Mint only for those who have spent X ETH on mints in the Y collection
+* Mint only for those who have spent X ETH on mints in total in all collections
+* Mint only for those who have more than 10 invitations in a given collection that uses the "friend-invite mint" contract
+* Many more...
+
+*Note: The collections are the ones that use any of the weird-actions contracts*
