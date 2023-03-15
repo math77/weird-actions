@@ -71,9 +71,9 @@ Something like:
 *Note 2: In the case of generative art it is interesting that the creator indicates the " reach" of the algorithm before it becomes repetitive*
 
 
-### Ethlogy mint
+### Netlogy mint
 
-Allows the artist/creator to set up mint flows based on users' onchain signs. The signs project [Ethlogy](https://github.com/math77/ethlogy)
+Allows the artist/creator to set up mint flows based on users' onchain signs. The signs project [Ethlogy](https://github.com/math77/netlogy)
 
 
 * Drop only for a specific sign
