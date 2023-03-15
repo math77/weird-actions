@@ -73,7 +73,7 @@ Something like:
 
 ### Netlogy mint
 
-Allows the artist/creator to set up mint flows based on users' onchain signs. The signs project [Ethlogy](https://github.com/math77/netlogy)
+Allows the artist/creator to set up mint flows based on users' onchain signs. The signs project [Netlogy](https://github.com/math77/netlogy)
 
 
 * Drop only for a specific sign
