@@ -73,8 +73,6 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721AUpgradeable, UUPSU
   /// @param inviting Who the current minter is inviting to mint the next one
   function mint(uint256 quantity, address inviting) external override payable returns (uint256) {
     _mint(_msgSender(), quantity);
-
-    return 1;
   }
 
   function statsPerAddress(address minter) external view override returns (IInviteMint.AddressMinterDetails memory) {
@@ -84,6 +82,21 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721AUpgradeable, UUPSU
         totalInvitations: amountOfInvites[minter]
       });
   }
+
+  //to implement this 5 functions below
+  function mintDetails() external view returns (MintDetails memory) {}
+
+  function setMetadataRenderer(IMetadataRenderer newRenderer) external {}
+
+  function setMintStartDate(uint64 startDate) external {}
+
+  function setMintEndDate(uint64 endDate) external {}
+
+  function setMintConfiguration(
+    uint104 mintPrice,
+    uint32 maxTokensPerAddress,
+    uint32 maxInvitesPerAddress
+  ) external {}
 
   /// @notice Burn tokenId
   /// @param tokenId Token ID to burn
