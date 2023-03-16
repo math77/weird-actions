@@ -124,6 +124,10 @@ interface IInviteMint {
     uint32 maxInvitesPerAddress
   ) external;
 
+  /// @notice Update the metadata renderer
+  /// @param newRenderer New renderer address
+  function setMetadataRenderer(IMetadataRenderer newRenderer) external;
+
   /// @notice Function to set mint start date (when the contract owner minted the first token)
   /// @param startDate the start date (unix timestamp)
   function setMintStartDate(uint64 startDate) external;
@@ -137,6 +141,9 @@ interface IInviteMint {
   /// @param inviting Address invited to be the next minter
   /// @return first minted token id
   function mint(uint256 quantity, address inviting) external payable returns(uint256);
+
+  /// @notice Function to return the global mint details for the collection
+  function mintDetails() external view returns (MintDetails memory);
 
   /// @notice Return the mint stats for a specific given address 
   /// @param minter The address for return specific stats
