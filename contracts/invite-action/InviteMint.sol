@@ -72,7 +72,7 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721AUpgradeable, UUPSU
   /// @param quantity Number of tokens to mint
   /// @param inviting Who the current minter is inviting to mint the next one
   function mint(uint256 quantity, address inviting) external override payable returns (uint256) {
-    _mint(_msgSender(), quantity);
+    //_mint(_msgSender(), quantity);
   }
 
   function statsPerAddress(address minter) external view override returns (IInviteMint.AddressMinterDetails memory) {
@@ -84,7 +84,18 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721AUpgradeable, UUPSU
   }
 
   //to implement this 5 functions below
-  function mintDetails() external view returns (MintDetails memory) {}
+  function mintDetails() external view returns (IInviteMint.MintDetails memory) {
+    return 
+      IInviteMint.MintDetails({
+        mintPrice: mintConfig.mintPrice,
+        totalMinted: _totalMinted(),
+        maxSupply: config.maxSupply,
+        mintStart: mintConfig.mintStart,
+        mintEnd: mintConfig.mintEnd,
+        maxTokensPerAddress: mintConfig.maxTokensPerAddress,
+        maxInvitesPerAddress: mintConfig.maxInvitesPerAddress
+      });
+  }
 
   function setMetadataRenderer(IMetadataRenderer newRenderer) external {}
 
