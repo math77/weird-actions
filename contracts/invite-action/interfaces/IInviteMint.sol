@@ -128,14 +128,6 @@ interface IInviteMint {
   /// @param newRenderer New renderer address
   function setMetadataRenderer(IMetadataRenderer newRenderer) external;
 
-  /// @notice Function to set mint start date (when the contract owner minted the first token)
-  /// @param startDate the start date (unix timestamp)
-  function setMintStartDate(uint64 startDate) external;
-
-  /// @notice Function to set mint start date (when the last token was minted)
-  /// @param endDate the end date (unix timestamp)
-  function setMintEndDate(uint64 endDate) external;
-
   /// @notice External mint function (payable in ETH)
   /// @param quantity Amount of tokens to min
   /// @param inviting Address invited to be the next minter
