@@ -9,6 +9,7 @@ import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {InviteMintProxy} from "./InviteMintProxy.sol";
 
 import {IInviteMintFactory} from "./interfaces/IInviteMintFactory.sol";
+import {IMetadataRenderer} from "./interfaces/IMetadataRenderer.sol";
 
 import {InviteMint} from "./InviteMint.sol";
 
@@ -43,18 +44,16 @@ contract InviteMintFactory is IInviteMintFactory, OwnableUpgradeable, UUPSUpgrad
   /// @param inviteMintName The invitemint collection name
   /// @param inviteMintSymbol The invitemint collection symbol
   /// @param maxSupply Collection max supply
-  /// @param maxTokensByMint Max number of tokens an address can mint by invite
-  /// @param maxInvitesByAddress Max number of invites an same address can receive
   /// @param initialOwner The owner of contract
+  /// @param fundsRecipient Address tha receive funds from mint
   /// @param renderer Address for the metadata contract 
   function createNewInviteMint(
     string memory inviteMintName,
     string memory inviteMintSymbol,
-    uint256 maxSupply,
-    uint256 maxTokensByMint,
-    uint256 maxInvitesByAddress,
+    uint64 maxSupply,
     address initialOwner,
-    address renderer
+    address payable fundsRecipient,
+    IMetadataRenderer renderer
   ) public payable returns (address newInviteMintAddress) {
     InviteMintProxy newInviteMint = new InviteMintProxy(implementation, "");
 
@@ -63,9 +62,8 @@ contract InviteMintFactory is IInviteMintFactory, OwnableUpgradeable, UUPSUpgrad
       _inviteMintName: inviteMintName,
       _inviteMintSymbol: inviteMintSymbol,
       _maxSupply: maxSupply,
-      _maxTokensByMint: maxTokensByMint,
-      _maxInvitesByAddress: maxInvitesByAddress,
       _initialOwner: initialOwner,
+      _fundsRecipient: fundsRecipient,
       _renderer: renderer
     });
 

@@ -13,12 +13,21 @@ interface IInviteMint {
 
   /// @notice Only admin can access the function
   error AccessOnlyAdmin();
+
+  /// @notice Only role or admin can access the function
+  error AccessOnlyRoleOrAdmin(bytes32 role);
   
   /// @notice Only invitees can mint and invite new one
   error NotInvited();
 
   /// @notice Not allowed invite yourself (address) to mint
   error CannotInviteYourself();
+
+  /// @notice Only address different from address(0) is accepted
+  error InvitingCannotBeZero();
+
+  /// @notice Admin only can mint as admin once
+  error AdminAlreadyMinted();
 
   /// @notice The address reached the max number of invitations allowed
   error MaxInvitationsReached();
@@ -141,5 +150,10 @@ interface IInviteMint {
   /// @param minter The address for return specific stats
   /// @return the stats associated with the minter
   function statsPerAddress(address minter) external view returns(AddressMinterDetails memory);
+
+  /// @dev Getter for admin role
+  /// @param user Address to check if is admin
+  /// @return boolean if address is admin
+  function isAdmin(address user) external view returns (bool);
   
 }
