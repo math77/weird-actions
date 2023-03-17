@@ -16,9 +16,18 @@ interface IMergeNFT {
 
   /// @notice Only admin can access the function
   error AccessOnlyAdmin();
+
+  /// @notice Only role or admin can access the function
+  error AccessOnlyRoleOrAdmin(bytes32 role);
+
+  /// @notice Only address different from address(0) is accepted
+  error AddressCannotBeZero();
   
   /// @notice Only the tokens owner can merge
   error NotTokenOwner();
+
+  /// @notice The tokens max supply was reached
+  error SupplySoldOut();
 
   /// @notice Only not merged tokens can be merged
   error TokenAlreadyMerged();
@@ -30,12 +39,18 @@ interface IMergeNFT {
   error WrongPrice(uint256 correctPrice);
 
   /// @notice Emits when tokens have been merged
+  /// @param to Address that receives the new token minted
   /// @param amountMerged how many tokens get merged
   /// @param tokenId ID of new token minted
-  event TokensMerged(
+  event Merge(
+    address indexed to,
     uint256 indexed amountMerged,
     uint256 tokenId
   );
+
+  /// @notice Emitted when merge configuration has been changed
+  /// @param changedBy who changed the config
+  event MergeConfigChanged(address indexed changedBy);
 
   /// @notice Emitted when metadata renderer is updated.
   /// @param updater who updated
@@ -98,11 +113,11 @@ interface IMergeNFT {
     // how many tokens minted
     uint256 totalMints;
     // how many tokens merged
-    uint256 totalTokensMerged;
+    uint256 totalMerged;
   }
 
   /// @notice Admin function to update the mint configuration settings
-  /// @param mergePrice merge price per token in eth
+  /// @param mergePrice Merge price per token in eth
   /// @param amountToMergePerMint Amount of tokens an address need to merge to mint new token  
   /// @param maxMergePerAddress Max merge an address can do
   function setMergeConfiguration(
@@ -142,4 +157,9 @@ interface IMergeNFT {
   /// @notice Update the collection to merge
   /// @param newCollectionToMerge New collection address
   function setCollectionToMerge(IERC721 newCollectionToMerge) external;
+
+  /// @dev Getter for admin role
+  /// @param user Address to check if is admin
+  /// @return boolean if address is admin
+  function isAdmin(address user) external view returns (bool);
 }

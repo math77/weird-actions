@@ -9,13 +9,18 @@ import {IMergeNFT} from "./interfaces/IMergeNFT.sol";
 /// @author matheus
 abstract contract MergeNFTStorage {
 
-  /// @notice TokenId of NFT minted after the merge
-  uint256 public tokenId;
+  /// @notice Keeps track of the amount of tokens merged
+  uint256 public totalMerged;
 
-  /// @notice Storage configuration for NFT merge
+  /// @notice Storage configuration for collection
   IMergeNFT.Configuration public config;
+
+  /// @notice Storage configuration for the merge mint flow
+  IMergeNFT.MergeConfiguration public mergeConfig;
 
   /// @notice Keeps track of the merged tokens
   mapping(uint256 tokenId => bool merged) public tokensMerged;
-  
+
+  /// @notice Keeps track of number of tokens an address merged
+  mapping(address user => uint256 total) public totalMergedByUser;
 }

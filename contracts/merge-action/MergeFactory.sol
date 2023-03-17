@@ -6,10 +6,10 @@ import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/U
 
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-import {MergeNFTProxy} from "./MergeNFTProxy.sol";
-
 import {IMergeNFTFactory} from "./interfaces/IMergeNFTFactory.sol";
+import {IMetadataRenderer} from "./interfaces/IMetadataRenderer.sol";
 
+import {MergeNFTProxy} from "./MergeNFTProxy.sol";
 import {MergeNFT} from "./MergeNFT.sol";
 
 
@@ -42,16 +42,18 @@ contract MergeFactory is IMergeNFTFactory, OwnableUpgradeable, UUPSUpgradeable {
   /// @notice Create a new MergeNFT
   /// @param mergeNFTName The name of the new contract (cannot be changed later)
   /// @param mergeNFTSymbol The symbol of the new contract (cannot be changed later)
-  /// @param amountToMerge The amount of required tokens to merge in order to mint a new one
+  /// @param maxSupply Collection max supply
   /// @param initialOwner The owner of contract
+  /// @param fundsRecipient Address that receives funds from mint
   /// @param renderer Address for the metadata contract
   /// @param collectionToMerge Collection where the NFTs to merge live 
   function createNewMergeNFT(
     string memory mergeNFTName,
     string memory mergeNFTSymbol,
-    uint256 amountToMerge,
+    uint64 maxSupply,
     address initialOwner,
-    address renderer,
+    address payable fundsRecipient,
+    IMetadataRenderer renderer,
     IERC721 collectionToMerge
   ) public payable returns (address newMergeNFTAddress) {
     MergeNFTProxy newMergeNFT = new MergeNFTProxy(implementation, "");
@@ -60,8 +62,9 @@ contract MergeFactory is IMergeNFTFactory, OwnableUpgradeable, UUPSUpgradeable {
     MergeNFT(newMergeNFTAddress).initialize({
       _mergeNFTName: mergeNFTName,
       _mergeNFTSymbol: mergeNFTSymbol,
-      _amountToMerge: amountToMerge,
+      _maxSupply: maxSupply,
       _initialOwner: initialOwner,
+      _fundsRecipient: fundsRecipient,
       _renderer: renderer,
       _collectionToMerge: collectionToMerge
     });
