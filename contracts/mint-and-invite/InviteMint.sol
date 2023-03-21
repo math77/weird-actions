@@ -2,6 +2,7 @@
 pragma solidity 0.8.18;
 
 import {ERC721AUpgradeable} from "erc721a-upgradeable/contracts/ERC721AUpgradeable.sol";
+import {IERC721AUpgradeable} from "erc721a-upgradeable/contracts/IERC721AUpgradeable.sol";
 
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzeppelin/contracts-upgradeable/interfaces/IERC2981Upgradeable.sol";
@@ -248,7 +249,12 @@ contract InviteMint is IInviteMint, InviteMintStorage, ERC721AUpgradeable, UUPSU
   }
 
   function tokenURI(uint256 tokenId) public view override returns (string memory) {
-    return "";
+
+    if(!_exists(tokenId)) {
+      revert IERC721AUpgradeable.URIQueryForNonexistentToken();
+    }
+
+    return config.metadataRenderer.tokenURI(tokenId);
   }
 
 
