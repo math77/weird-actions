@@ -93,3 +93,13 @@ Rules examples:
 * Many more...
 
 *Note: The collections are the ones that use any of the weird-actions contracts*
+
+
+### Supply increase over time
+
+It allows artists/creators to create collections that start with a certain supply, and this supply increases at a certain rate over a certain period of time until it reaches a target ceiling. 
+
+E.g.: Collection starts with 1000 tokens available and every 9 months 500 new tokens will be available until the maximum supply of 5000 tokens is reached.
+
+
+*Note: Maybe this is better as a module or extension that is pluggable into other weird actions*

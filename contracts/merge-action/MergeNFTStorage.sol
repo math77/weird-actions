@@ -23,4 +23,4 @@ abstract contract MergeNFTStorage {
 
   /// @notice Keeps track of number of tokens an address merged
   mapping(address user => uint256 total) public totalMergedByUser;
-}
+} 
