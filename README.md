@@ -55,7 +55,9 @@ The artworks (visuals) are revealed as soon as the token has an associated seed.
 *Note: Looks cool for generative art*
 
 
-### Community-managed-supply
+### Dynamic supply
+
+#### Community-managed-supply
 
 It allows the community of NFT owners in a collection to propose and vote on whether they want to increase the collection's supply.
 
@@ -69,6 +71,28 @@ Something like:
 *Note 1: Looks cool for generative art*
 
 *Note 2: In the case of generative art it is interesting that the creator indicates the " reach" of the algorithm before it becomes repetitive*
+
+
+#### Supply increase over time
+
+It allows artists/creators to create collections that start with a certain supply, and this supply increases at a certain rate over a certain period of time until it reaches a target ceiling. 
+
+E.g.: Collection starts with 1000 tokens available and every 9 months 500 new tokens will be available until the maximum supply of 5000 tokens is reached.
+
+
+*Note: Maybe this is better as a module or extension that is pluggable into other weird actions*
+
+#### Mint token and increase supply
+
+When you mint a token that token increases the total available supply by a new slot of X tokens. This new supply is of tokens that are children of the "originals".
+
+The contract creator defines:
+- How many new supply slots will be added whenever a new token is minted
+- The depth of the increase (if child tokens also add new slots)
+
+Send the tokenId and its "depth" to the rendering function.
+
+*Note: Can be interesting for generative art or collections that want to add some kind of "hierarchy".*
 
 
 ### Netlogy mint
@@ -95,11 +119,13 @@ Rules examples:
 *Note: The collections are the ones that use any of the weird-actions contracts*
 
 
-### Supply increase over time
+### Playful little "commands"
 
-It allows artists/creators to create collections that start with a certain supply, and this supply increases at a certain rate over a certain period of time until it reaches a target ceiling. 
+#### Shuffle all tokens
 
-E.g.: Collection starts with 1000 tokens available and every 9 months 500 new tokens will be available until the maximum supply of 5000 tokens is reached.
+Allows after the mint period is over the contract creator to call a function that will randomly shuffle the list of tokens and their owners.
 
 
-*Note: Maybe this is better as a module or extension that is pluggable into other weird actions*
+#### Burn a few and let re-mint
+
+It allows the contract creator to call a function shortly after the mint period is over, which will randomly burn some tokens and let the owners of those tokens re-mint new ones.
