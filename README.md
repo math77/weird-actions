@@ -2,6 +2,8 @@
 
 An attempt to build a set of action contracts for NFTs. Each action is composed of contracts that are deployed by artists and creators activating self-sovereignty. The ultimate goal is to have more tools for creators to experiment beyond the current default mint().
 
+This whole repository was inspired by: [Zora drops](https://github.com/ourzora/zora-drops-contracts)
+
 ## Actions
 
 ### MergeNFT
