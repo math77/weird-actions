@@ -128,4 +128,21 @@ Allows after the mint period is over the contract creator to call a function tha
 
 #### Burn a few and let re-mint
 
-It allows the contract creator to call a function shortly after the mint period is over, which will randomly burn some tokens and let the owners of those tokens re-mint new ones.
+It allows the contract creator to call a function shortly after the mint period is over, which will randomly burn some tokens and let the owners of those tokens re-mint new different ones.
+
+
+#### "Share" a token
+
+Allows the owner of a media to share it with someone else, as a gift!
+
+Sharing media means creating a copy of NFT and sending it to other users' wallets. When an NFT is shared in the metadata it is indicated that it has been shared.
+
+```
+{
+ "title": "...",
+ "image": "...",
+ "description": "...",
+ "shared": true,
+}
+
+```
