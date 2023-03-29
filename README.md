@@ -41,7 +41,14 @@ The process works this way:
 Same process as the mint-invite action above, but with the possibility for the user who is minting the current token to pay the mint value of the token of the user he is inviting to mint.
 
 
-### Give to the "bazaar" to mint
+### Recycle to mint
+
+It allows a creator to make a mint process based on recycling other NFTs in order to mint a new one from the new collection.
+
+The creator must set the addresses of the collections accepted for recycling and the number of tokens needed from each.
+
+
+### Giveaway to mint new one
 
 It allows artists/creators to create a minting process where collectors need to send an NFT from those accepted by the bazaar in order to mint a new NFT in the current collection.
 
