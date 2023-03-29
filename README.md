@@ -151,11 +151,11 @@ Allows after the mint period is over the contract creator to call a function tha
 It allows the contract creator to call a function shortly after the mint period is over, which will randomly burn some tokens and let the owners of those tokens re-mint new different ones.
 
 
-### Unlock at some point
+#### Unlock at some point
 
 Allows the creator to define a collection and a certain date when the mint will be available for all those who have minted the current collection (to which he "plugged" this extension)
 
-### Unlock at some quantity
+#### Unlock at some quantity
 
 Same mechanism as above plus using the amount minted in the current collection as the unlocker. Only those who minted X in the first collection will get a token in the plugged collection on the set date
 
