@@ -17,6 +17,13 @@ Among the possibilities of what happens to NFTs that have been merged are:
 * NFTs are locked into the merger contract
 
 
+### MergeNFT (same collection)
+
+Same as MergeNFT above, but using the same collection.
+
+The creator can split the process into two steps, allowing users to mint NFTs first and then at another time they merge X tokens in order to mint a new one.
+
+
 ### Friend-invite mint
 
 It allows artists and creators to implement a mint-invite based minting process.
