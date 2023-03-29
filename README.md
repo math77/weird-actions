@@ -48,6 +48,13 @@ It allows a creator to make a mint process based on recycling other NFTs in orde
 The creator must set the addresses of the collections accepted for recycling and the number of tokens needed from each.
 
 
+### Magic box
+
+Use the ERC-998 standard to allow developers to create "boxes" of items. Putting several NFTs from different collections together in a single mint
+
+*Note: Need to examine the pattern and understand why it is so under-explored*
+
+
 ### Giveaway to mint new one
 
 It allows artists/creators to create a minting process where collectors need to send an NFT from those accepted by the bazaar in order to mint a new NFT in the current collection.
@@ -62,7 +69,7 @@ Something like:
 *Note: This is more of a proof of concept. This action would be very interesting, if we already had proof of humanity used in mass, so that the people who buy the NFTs from the bazaar are different from the previous owners, thus increasing the rotativity of the pieces*
 
 
-### Mint to "chain-friend" or "in-cascade"
+### Mint to "chain-friend" or "in-cascade" (abandoned)
 
 The user who mints token #1 automatically mints the seed for the artwork of the user who mints token #2, the user who mints token #2 mints the seed for the artwork of the user who mints token #3, and so on until the user who mints the last token mints the seed for the artwork of the user who minted token #1.
 
@@ -84,10 +91,7 @@ Something like:
 * If the proposal passes the total supply is increased by X
 * For a proposal to pass it must have 51% + 1 vote? (maybe)
 
-*Note 1: Looks cool for generative art*
-
-*Note 2: In the case of generative art it is interesting that the creator indicates the " reach" of the algorithm before it becomes repetitive*
-
+*Note 1: Looks cool for generative projects*
 
 #### Supply increase over time
 
@@ -108,7 +112,7 @@ The contract creator defines:
 
 Send the tokenId and its "depth" to the rendering function.
 
-*Note: Can be interesting for generative art or collections that want to add some kind of "hierarchy".*
+*Note: Can be interesting for collections that want to add some kind of "hierarchy".*
 
 
 ### Netlogy mint
@@ -145,6 +149,15 @@ Allows after the mint period is over the contract creator to call a function tha
 #### Burn a few and let re-mint
 
 It allows the contract creator to call a function shortly after the mint period is over, which will randomly burn some tokens and let the owners of those tokens re-mint new different ones.
+
+
+### Unlock at some point
+
+Allows the creator to define a collection and a certain date when the mint will be available for all those who have minted the current collection (to which he "plugged" this extension)
+
+### Unlock at some quantity
+
+Same mechanism as above plus using the amount minted in the current collection as the unlocker. Only those who minted X in the first collection will get a token in the plugged collection on the set date
 
 
 #### "Share" a token
