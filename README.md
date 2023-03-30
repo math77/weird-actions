@@ -160,6 +160,19 @@ Allows the creator to define a collection and a certain date when the mint will 
 Same mechanism as above plus using the amount minted in the current collection as the unlocker. Only those who minted X in the first collection will get a token in the plugged collection on the set date
 
 
+#### Burn, and the amount burned decides the artwork
+
+It allows the creator to make groups of artworks and decide how many tokens need to be burned to receive from each group.
+
+E.g.
+	
+	* 10 tokens burned to mint from group 1
+	* 30 tokens burned to mint from group 2
+	* 60 tokens burned to mint from group 3
+
+Allow the tokenURI function to receive the burnt amount to be used in generative art cases	
+
+
 #### "Share" a token
 
 Allows the owner of a media to share it with someone else, as a gift!
