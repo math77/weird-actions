@@ -170,7 +170,12 @@ E.g.
 	* 30 tokens burned to mint from group 2
 	* 60 tokens burned to mint from group 3
 
-Allow the tokenURI function to receive the burnt amount to be used in generative art cases	
+Allow the tokenURI function to receive the burnt amount to be used in generative art cases
+
+
+#### Reward that keeps tokens
+
+Using the number of transfers of a token as a mechanism.
 
 
 #### "Share" a token
