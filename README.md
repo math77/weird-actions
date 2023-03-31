@@ -4,6 +4,8 @@ An attempt to build a set of action contracts for NFTs. Each action is composed 
 
 This whole repository was inspired by: [Zora drops](https://github.com/ourzora/zora-drops-contracts)
 
+**Warning: This README is a collection of ideas first, some of the actions may be rethought or even never see the light of day.**
+
 ## Actions
 
 ### MergeNFT
@@ -176,7 +178,7 @@ Allow the tokenURI function to receive the burnt amount to be used in generative
 #### Reward that keeps tokens
 
 Using the number of transfers of a token as a mechanism.
-
+ 																																																																																																																																																																																																																																																																																																																																
 
 #### "Share" a token
 
