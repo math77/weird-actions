@@ -4,7 +4,9 @@ An attempt to build a set of action contracts for NFTs. Each action is composed 
 
 This whole repository was inspired by: [Zora drops](https://github.com/ourzora/zora-drops-contracts)
 
-**Warning: This README is a collection of ideas first, some of the actions may be rethought or even never see the light of day.**
+**Warning1: Some of these ideas may be the same (I'll clean them up later)**
+
+**Warning2: This README is a collection of ideas first, some of the actions may be rethought or even never see the light of day.**
 
 ## Actions
 
@@ -16,7 +18,7 @@ The creator must set how many NFTs need to be merged by the user in order to rec
 
 Among the possibilities of what happens to NFTs that have been merged are:
 * The NFTs are burned
-* NFTs are locked into the merger contract
+* NFTs are locked into the merger contract (can the developer add a date for when these NFTs are unlocked or if they will be forever locked)
 
 
 ### MergeNFT (same collection)
@@ -54,7 +56,11 @@ The creator must set the addresses of the collections accepted for recycling and
 
 Use the ERC-998 standard to allow developers to create "boxes" of items. Putting several NFTs from different collections together in a single mint
 
-*Note: Need to examine the pattern and understand why it is so under-explored*
+Maybe allow collectors/creators to put together several different NFTs and sell them as "packs" (onlyfans inspired lol)
+
+*Note1: Need to examine the pattern and understand why it is so under-explored*
+
+*Note2: Maybe use ERC6551*
 
 **Rethink this a little bit**
 
@@ -118,15 +124,7 @@ Send the tokenId and its "depth" to the rendering function.
 
 *Note: Can be interesting for collections that want to add some kind of "hierarchy".*
 
-
-### Netlogy mint
-
-Allows the artist/creator to set up mint flows based on users' onchain signs. The signs project [Netlogy](https://github.com/math77/netlogy)
-
-
-* Drop only for a specific sign
-* Sign information used as seed
-* Specific artwork for each sign
+*Note2: Maybe the increase in supply can be based on demand (how to calculate the demand onchain? does it need to be onchain?)*
 
 
 ### Rule-based mint
@@ -143,6 +141,7 @@ Rules examples:
 *Note: The collections are the ones that use any of the weird-actions contracts*
 
 
+
 ### Playful little "commands"
 
 #### Shuffle all tokens
@@ -150,7 +149,7 @@ Rules examples:
 Allows after the mint period is over the contract creator to call a function that will randomly shuffle the list of tokens and their owners.
 
 
-#### Burn a few and let re-mint
+#### Burn a few and let re-mint (maybe?)
 
 It allows the contract creator to call a function shortly after the mint period is over, which will randomly burn some tokens and let the owners of those tokens re-mint new different ones.
 
@@ -184,7 +183,7 @@ Using the number of transfers of a token as a mechanism.
 
 #### "Share" a token
 
-Allows the owner of a media to share it with someone else, as a gift!
+Allows the owner of a media to share it with someone else, as a way of spread!
 
 Sharing media means creating a copy of NFT and sending it to other users' wallets. When an NFT is shared in the metadata it is indicated that it has been shared.
 
@@ -197,3 +196,7 @@ Sharing media means creating a copy of NFT and sending it to other users' wallet
 }
 
 ```
+
+#### Send a token
+
+Mint a token to someone else. A gift for a friend
