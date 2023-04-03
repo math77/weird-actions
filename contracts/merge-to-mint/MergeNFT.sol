@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.18;
 
-//import {ERC721Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
-
 import {ERC721AUpgradeable} from "erc721a-upgradeable/contracts/ERC721AUpgradeable.sol";
+import {IERC721AUpgradeable} from "erc721a-upgradeable/contracts/IERC721AUpgradeable.sol";
 
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzeppelin/contracts-upgradeable/interfaces/IERC2981Upgradeable.sol";
@@ -129,12 +128,12 @@ contract MergeNFT is IMergeNFT, MergeNFTStorage, ERC721AUpgradeable, UUPSUpgrade
 
   /// @notice Verify if who (msg.sender) whos all the NFTs in tokens array
   /// @dev If any token is not owned by who the execution is reverted
-  /// @param who Address from msg.sender
+  /// @param user Address from msg.sender
   /// @param tokens List of tokenIds sent by msg.sender to verify ownership
-  function verifyTokensOwnership(address who, uint256[] calldata tokens) public view {
+  function verifyTokensOwnership(address user, uint256[] calldata tokens) public view {
 
     for(uint256 i; i < tokens.length;) {
-      if(IERC721(config.collectionToMerge).ownerOf(tokens[i]) != who) {
+      if(IERC721(config.collectionToMerge).ownerOf(tokens[i]) != user) {
         revert NotTokenOwner();
       }
 
@@ -144,7 +143,7 @@ contract MergeNFT is IMergeNFT, MergeNFTStorage, ERC721AUpgradeable, UUPSUpgrade
 
   /// @notice Merge all tokens in tokens array
   /// @param tokens List of tokenIds sent by msg.sender to verify ownership
-  function mergeTokens(uint256[] calldata tokens) internal {
+  function _mergeTokens(uint256[] calldata tokens) internal {
     for(uint256 i; i < tokens.length;) {
       tokensMerged[tokens[i]] = true;
 
@@ -232,7 +231,12 @@ contract MergeNFT is IMergeNFT, MergeNFTStorage, ERC721AUpgradeable, UUPSUpgrade
   }
 
   function tokenURI(uint256 tokenId) public view override returns (string memory) {
-    return "";
+
+    if(!_exists(tokenId)) {
+      revert IERC721AUpgradeable.URIQueryForNonexistentToken();
+    }
+
+    return config.metadataRenderer.tokenURI(tokenId);
   }
 
 
