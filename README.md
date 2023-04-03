@@ -143,11 +143,6 @@ Rules examples:
 *Note: The collections are the ones that use any of the weird-actions contracts*
 
 
-### Contact list
-
-It allows a user to create a list with the addresses of his friends and a treasure in eth. These friends are allowed to spend this ETH on behalf of the user without any pre-approval.
-
-
 ### Playful little "commands"
 
 #### Shuffle all tokens
