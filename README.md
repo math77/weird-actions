@@ -50,11 +50,13 @@ It allows a creator to make a mint process based on recycling other NFTs in orde
 The creator must set the addresses of the collections accepted for recycling and the number of tokens needed from each.
 
 
-### Magic box
+### Magic box 
 
 Use the ERC-998 standard to allow developers to create "boxes" of items. Putting several NFTs from different collections together in a single mint
 
 *Note: Need to examine the pattern and understand why it is so under-explored*
+
+**Rethink this a little bit**
 
 
 ### Giveaway to mint new one
@@ -139,6 +141,11 @@ Rules examples:
 * Many more...
 
 *Note: The collections are the ones that use any of the weird-actions contracts*
+
+
+### Contact list
+
+It allows a user to create a list with the addresses of his friends and a treasure in eth. These friends are allowed to spend this ETH on behalf of the user without any pre-approval.
 
 
 ### Playful little "commands"
