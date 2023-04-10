@@ -79,15 +79,6 @@ Something like:
 *Note: This is more of a proof of concept. This action would be very interesting, if we already had proof of humanity used in mass, so that the people who buy the NFTs from the bazaar are different from the previous owners, thus increasing the rotativity of the pieces*
 
 
-### Mint to "chain-friend" or "in-cascade" (abandoned)
-
-The user who mints token #1 automatically mints the seed for the artwork of the user who mints token #2, the user who mints token #2 mints the seed for the artwork of the user who mints token #3, and so on until the user who mints the last token mints the seed for the artwork of the user who minted token #1.
-
-The artworks (visuals) are revealed as soon as the token has an associated seed.
-
-*Note: Looks cool for generative art*
-
-
 ### Dynamic supply
 
 #### Community-managed-supply
@@ -200,3 +191,10 @@ Sharing media means creating a copy of NFT and sending it to other users' wallet
 #### Send a token
 
 Mint a token to someone else. A gift for a friend
+
+
+#### Pay what you want
+
+It allows the creator to set a payment method that allows the collector to pay whatever amount they want for the tokens.
+
+Creators will have the option to set a minimum and maximum as well.
